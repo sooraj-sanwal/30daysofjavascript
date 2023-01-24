@@ -1,0 +1,120 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript for Everyone:DOM</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Hello, Welcome in, <span></span> </h1>
+        <h2>30DaysOfJavaScript Challenge</h2>
+        <ul>
+            <li>30DaysOfPython Challenge Done</li>
+            <li>30DaysOfJavaScript Challenge Ongoing</li>
+            <li>30DaysOfReact Challenge Coming</li>
+            <li>30DaysOfFullStack Challenge Coming</li>
+            <li>30DaysOfDataAnalysis Challenge Coming</li>
+            <li>30DaysOfReactNative Challenge Coming</li>
+            <li>30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+    </div>
+    <script>
+        var body = document.querySelector('body')
+        body.style.backgroundColor = '#FFD4D4'
+        var wrapper = document.getElementsByClassName('wrapper')
+
+        // Wrapper function
+
+        wrapper[0].style.backgroundColor = '#9AD1AA'
+        wrapper[0].style.width = '50%'
+        wrapper[0].style.margin = '5rem auto'
+        wrapper[0].style.borderRadius = '10px'
+        wrapper[0].style.padding = '1rem'
+        wrapper[0].style.boxShadow = 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset'
+
+
+        //h1 style
+        var headingOne = document.getElementsByTagName('h1')
+        headingOne[0].style.textAlign = 'center'
+
+        // year function
+        var year = document.getElementsByTagName('span')
+        year[0].style.fontSize = '3rem'
+        var date = new Date();
+        year[0].textContent = date.getFullYear();
+
+
+        //color change function
+
+        var colors = ["White", "red", "yellow", "blue", "black"]
+        var colorIndex = 0;
+        setInterval(() => {
+            year[0].style.color = colors[colorIndex]
+            colorIndex = (colorIndex + 1) % colors.length;
+        }, 1000);
+
+        var headingTwo = document.querySelector('h2')
+        headingTwo.style.textAlign = 'center'
+        headingTwo.style.fontSize = '1.5rem'
+        headingTwo.style.textDecoration = 'underline'
+
+        // creating new element for date time
+
+        var newDateElement = document.createElement('h3')
+        newDateElement.textContent = date.toLocaleString()
+        headingTwo.insertAdjacentElement('afterend', newDateElement)
+        newDateElement.style.textDecoration = 'none'
+        newDateElement.style.textAlign = 'center'
+
+        setInterval(() => {
+            newDateElement.style.backgroundColor = colors[colorIndex]
+            colorIndex = (colorIndex + 1) % colors.length;
+            if (newDateElement.style.backgroundColor === colors[4])
+                newDateElement.style.color = 'white'
+            else
+                newDateElement.style.color = 'black'
+        }, 1000);
+
+        // TO get all the li items and first give them id based on status then give backgroundColor
+
+        var getListItem = document.querySelectorAll('li');
+        for (let i = 0; i < getListItem.length; i++) {
+            if (i < 2) {
+                if (getListItem[i]) {
+                    if (i === 0) {
+                        getListItem[i].id = 'completed';
+                        getListItem[i].style.backgroundColor = 'green';
+                        getListItem[i].style.padding = '.5rem'
+                        getListItem[i].style.margin = '.2rem'
+                        getListItem[i].style.listStyle = 'none'
+
+
+                    } else {
+                        getListItem[i].id = 'ongoing';
+                        getListItem[i].style.backgroundColor = 'yellow';
+                        getListItem[i].style.padding = '.5rem'
+                        getListItem[i].style.margin = '.2rem'
+                        getListItem[i].style.listStyle = 'none'
+
+                    }
+                }
+            } else {
+                getListItem[i].id = 'upcoming';
+                getListItem[i].style.backgroundColor = 'red';
+                getListItem[i].style.padding = '.5rem'
+                getListItem[i].style.margin = '.2rem'
+                getListItem[i].style.listStyle = 'none'
+
+            }
+        }
+
+        var unorderedList = document.getElementsByTagName('ul')
+        unorderedList[0].style.padding = '0'
+        unorderedList[0].style.margin = '1rem'
+
+    </script>
+</body>
+
+</html>
