@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Number Generator</h1>
+    <h2 style="text-align: center;">Check if a number is even, odd or prime</h2>
+</body>
+<script>
+    // creating the div
+
+    var divContainer = document.createElement('div')
+    document.body.appendChild(divContainer)
+    divContainer.id = 'container'
+    var container = document.getElementById('container')
+    container.style.backgroundColor = '#FEDEFF'
+
+    container.style.display = 'flex'
+    container.style.flexWrap = 'wrap'
+    container.style.padding = '3rem'
+
+    //  generating numbers first
+    function isPrime(i) {
+    for(let j = 2; j < i; j++)
+        if(i % j === 0) return false;
+    return i !== 1;
+}
+    var numberdiv;
+    for (let i = 1; i <= 100; i++) {
+        numberdiv = document.createElement('div')
+        numberdiv.classList = 'numdiv'
+        numberdiv.textContent = i
+        numberdiv.style.display = 'grid'
+        numberdiv.style.gridTemplateColumns = 'repeat(auto-fit, minmax(8rem, 1fr))';
+        numberdiv.style.width = '8rem'
+        numberdiv.style.height = '6rem'
+        numberdiv.style.margin = '.5rem'
+        numberdiv.style.placeItems = 'center';
+        numberdiv.style.fontWeight = 'bolder';
+        numberdiv.style.color = 'white';
+        if(i%2===0){
+        numberdiv.style.backgroundColor = 'green'
+        numberdiv.textContent =`${i} even no`}
+
+        if(i%2!=0){
+        numberdiv.style.backgroundColor = '#b28e41'
+        numberdiv.textContent =`${i} odd no`}
+        if(isPrime(i)) {
+        numberdiv.style.backgroundColor = 'red'
+        numberdiv.textContent =`${i} prime no`
+    }
+
+
+        container.appendChild(numberdiv)
+    }
+
+</script>
+
+</html>
